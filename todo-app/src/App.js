@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Todo from "./components/Todo";
 import FilterButton from "./components/FilterButton";
 import Form from "./components/Form";
 
 
 function App(props) {
+  const [tasks, setTasks] = useState(props.tasks);
 
-  const taskList = props.tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />)
+  const taskList = tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />)
 
   function addTask(name) {
-    alert(name)
+
+    if (name.length === 0) {
+      return
+    }
+
+    const newTask = {
+      id: 'id', name: name, completed: false
+    };
+    setTasks([...tasks, newTask]);
   }
+
+  const headingText = `${taskList.length} tasks remaining`;
+
+
+
 
   return (
     <div className="todoapp stack-large">
-      <h1>Don't forget to....</h1>
+      <h1>Don't forget to....{headingText}</h1>
       <Form addTask={addTask} />
       <h2 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label__lg">
@@ -28,11 +42,9 @@ function App(props) {
         name="text"
         autoComplete="off"
       />
-      <button type="submit" className="btn btn__primary btn__lg">
-        Add
-      </button>
 
-      <div className="filters btn-group stack-exception">
+
+      {/* <div className="filters btn-group stack-exception">
         <button type="button" className="btn toggle-btn" aria-pressed="true">
           <span className="visually-hidden">Show </span>
           <span>all</span>
@@ -48,7 +60,7 @@ function App(props) {
           <span>Completed</span>
           <span className="visually-hidden"> tasks</span>
         </button>
-      </div>
+      </div> */}
       <h2 id="list-heading">
         3 tasks remaining
       </h2>
