@@ -2,7 +2,7 @@
   "name": "Time-Todo-App",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://tannerpace.github.io/Todo-React",
+  "homepage": "https://tannerpace.github.io/Todo-React/",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
