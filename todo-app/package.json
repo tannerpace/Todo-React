@@ -2,6 +2,8 @@
   "name": "Time-Todo-App",
   "version": "0.1.1",
   "private": true,
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "homepage": "https://tannerpace.github.io/Todo-React/",
   "dependencies": {
     "@emotion/react": "^11.4.1",
