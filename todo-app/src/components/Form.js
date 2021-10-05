@@ -71,12 +71,9 @@ function Form(props) {
 
             />
             <div class="button__wrap"><button className="button btn btn__primary btn__lg" 
-            type="submit">ADD Hi Mom</button>
+            type="submit">ADD</button>
     <div class="button__shadow"></div>
 </div>
-            <button  className="btn btn__primary btn__lg">
-                Add
-            </button>
           
             
 
