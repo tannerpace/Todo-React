@@ -312,7 +312,7 @@ input[type="text"] {
   outline-color: hsl(var(--hue), 100%, 80%);
   animation-name: flow-and-shake;
   animation-duration: calc(var(--speed) * 1s);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
 }
 .button:after {
