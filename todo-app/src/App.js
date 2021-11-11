@@ -17,21 +17,21 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All');
 
-function toggleTaskCompleted(id) {
+  function toggleTaskCompleted(id) {
 
     const updatedTasks = tasks.map(task => {
       //if the task has matching id, 
       if (id === task.id) {
         //use object spread to make a new object 
         // whoos completed prop has been inverted and
-       return {
+        return {
           ...task, completed: !task.completed
         }
       }
       return task;
     })
     setTasks(updatedTasks)
-    
+
   }
 
   const taskList = tasks.filter(FILTER_MAP[filter])
@@ -44,7 +44,7 @@ function toggleTaskCompleted(id) {
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask} />))
-// list of filter types
+  // list of filter types
   const filterList = FILTER_NAMES.map(name => (
     <FilterButton key={name}
       name={name}
@@ -53,7 +53,7 @@ function toggleTaskCompleted(id) {
   ));
 
   const tasksNoun = taskList.length > 1 ? 'tasks' : 'task';
-  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+  const headingText = `${taskList.length} ${tasksNoun} remaining 🧐 `;
 
   function addTask(name) {
 
@@ -87,8 +87,8 @@ function toggleTaskCompleted(id) {
 
     <div className="todoapp stack-large">
 
-      {taskList.length > 0 ? (<h1>{headingText}</h1>) : (<h1>You don't have anything to do</h1>)}
-      
+      {taskList.length > 0 ? (<h1>{headingText}</h1>) : (<h1>0 Tasks Todo 🤪 </h1>)}
+      {filterList}
       <Form addTask={addTask} />
       <ul
         role="list"
@@ -97,7 +97,7 @@ function toggleTaskCompleted(id) {
       >
         {taskList}
       </ul>
-      {filterList}
+
     </div>
   );
 }
